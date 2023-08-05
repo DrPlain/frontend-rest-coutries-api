@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .countryBorders {
+    display: flex;
+    justify-content: space-between;
+} */
+
+.countryName {
+    padding: 4px;
+}
+
+.countryButton {
+    margin: 4px;
+    width: 100px;
+}
