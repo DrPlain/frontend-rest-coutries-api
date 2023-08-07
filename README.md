@@ -37,7 +37,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Github](https://github.com/DrPlain/frontend-rest-coutries-api)
-- Live Site URL: [Live site ](https://frontendio-newsletter-signup.netlify.app)
+- Live Site URL: [Live site ](https://countries-made-easy.netlify.app/)
 
 ### Built with
 

@@ -20,7 +20,7 @@ export default function Search({ searchByCountry, searchByRegion, darkMode }) {
   const [selectedFilter, setSelectedFilter] = useState("Filter by Region");
 
   const handleSearch = (e) => {
-    setSearchInput(capitalize(e.target.value));
+    setSearchInput(e.target.value);
   };
 
   const handleSelect = (e) => {
@@ -32,10 +32,9 @@ export default function Search({ searchByCountry, searchByRegion, darkMode }) {
   };
 
   useEffect(() => {
-    // console.log(selectedFilter);
-    searchByCountry(searchInput);
-    searchByRegion(selectedFilter);
-  }, [selectedFilter]);
+    // searchByCountry(searchInput);
+    searchByRegion(selectedFilter, searchInput);
+  }, [selectedFilter, searchInput]);
 
   return (
     <div className="md:flex items-center justify-between">
@@ -82,7 +81,7 @@ export default function Search({ searchByCountry, searchByRegion, darkMode }) {
             <optgroup key={region.name}>
               <option
                 value={region.name}
-                className={`${darkMode && "bg-[#2B3945] text-white"}`}
+                className={`${darkMode && "bg-[#2B3945] text-white"} mx-auto`}
               >
                 {region.name === "Americas" ? "America" : region.name}
               </option>

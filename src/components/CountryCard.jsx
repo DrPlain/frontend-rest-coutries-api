@@ -1,9 +1,7 @@
 import React from "react";
+import { useEffect } from "react";
 
-export default function CountryCard({ countries, darkMode }) {
-  //   const country = Countries[1];
-  //   const pageSize = 8;
-  //   const Countries = CountriesData.slice(0, 8);
+export default function CountryCard({ countries, darkMode, searchByCountry }) {
   return (
     <div className="grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-y-8">
       {countries.map((country) => (
@@ -12,6 +10,7 @@ export default function CountryCard({ countries, darkMode }) {
           className={`border mt-4 rounded-md mx-10 ${
             darkMode && "bg-[#2B3945]"
           }`}
+          onClick={() => searchByCountry(country.name)}
         >
           <div>
             <img

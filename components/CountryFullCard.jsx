@@ -1,13 +1,18 @@
 import React from "react";
 import BackButton from "./BackButton";
 
-export default function CountryFullCard({ country, setCountry, countries }) {
+export default function CountryFullCard({
+  country,
+  setCountry,
+  countries,
+  searchByCountry,
+}) {
   const findCountryName = (arrayCodes) => {
-    const countryNames = arrayCodes.map((alpha3Code) => {
+    let countryNames = [];
+    arrayCodes.map((alpha3Code) => {
       return countries.map((country) => {
         if (country.alpha3Code === alpha3Code) {
-          console.log(country.name);
-          return country.name;
+          countryNames.push(country.name);
         }
       });
     });
@@ -17,6 +22,7 @@ export default function CountryFullCard({ country, setCountry, countries }) {
     for (let i = 0; i < countryNames.length; i++) {
       result.push({ id: i, countryName: countryNames[i] });
     }
+    // console.log(result);
     return result;
   };
   return (
@@ -69,13 +75,14 @@ export default function CountryFullCard({ country, setCountry, countries }) {
               <span className="font-semibold">Border Countries:</span>{" "}
             </p>
             <div className="inline">
-              {findCountryName(country.borders).map(({ id, countryName }) => (
-                <div key={id} className="">
-                  <button className="border countryButton">
-                    <p className="countryName">{countryName}</p>
-                  </button>
-                </div>
-              ))}
+              {country.borders &&
+                findCountryName(country.borders).map(({ id, countryName }) => (
+                  <div key={id} onClick={() => searchByCountry(countryName)}>
+                    <button className="border countryButton">
+                      <p className="countryName">{countryName}</p>
+                    </button>
+                  </div>
+                ))}
             </div>
           </div>
         </div>
